@@ -10,7 +10,7 @@ public class Ticket
     public Status Status { get; private set; }
     public DateTime CreatedAt { get; private set; }
 
-    public Ticket(int patrimony, string description, string solution, Status status = Status.Progress, DateTime createdAt)
+    public Ticket(int patrimony, string description, string solution, Status status = Status.InProgress, DateTime createdAt)
     {
         Patrimony = patrimony;
         Description = description;
