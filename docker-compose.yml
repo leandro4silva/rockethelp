@@ -1,9 +1,9 @@
 version: '3.4'
 
 services:
-  fc.codeflix.catalog.fb:
-    container_name: rockethelp_db
-    hostname: rockethelp_db
+  rocket_help_db:
+    container_name: rocket_help_db
+    hostname: rocket_help_db
     image: mysql
     ports:
       - 3306:3306
@@ -12,6 +12,6 @@ services:
 
 networks:
   default:
-    name: service_rockethelp
+    name: service_rocket_help
 
     

@@ -2,7 +2,7 @@
 
 namespace RocketHelp.Domain.Entity;
 
-public class Ticket
+public class Ticket : SeedWork.Entity
 {
     public int Patrimony { get; private set; }
     public string Description { get; private set; }
@@ -10,13 +10,13 @@ public class Ticket
     public Status Status { get; private set; }
     public DateTime CreatedAt { get; private set; }
 
-    public Ticket(int patrimony, string description, string solution, Status status = Status.InProgress, DateTime createdAt)
+    public Ticket(int patrimony, string description, string solution, Status status = Status.InProgress) : base()
     {
         Patrimony = patrimony;
         Description = description;
         Solution = solution;
         Status = status;
-        CreatedAt = createdAt;
+        CreatedAt = DateTime.Now;
     }
 
     public void Finish()

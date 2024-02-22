@@ -1,6 +1,6 @@
-﻿using RocketHelp.Domain.Entity;
+﻿using Microsoft.EntityFrameworkCore;
+using RocketHelp.Domain.Entity;
 using RocketHelp.Domain.Repository;
-using RocketHelp.Application.Exceptions;
 
 namespace RocketHelp.Infra.Repositories;
 
@@ -15,12 +15,17 @@ public class UserRepository : IUserRepository
 
   public async Task<User> GetByEmail(string email, CancellationToken cancellationToken)
   {
-    var user = await _context.User.AsNoTracking().FirstOrDefaultAsync(
-        x => x.Email == email,
-        cancellationToken
-    );
+        var user = await _context.User.AsNoTracking()
+            .FirstOrDefaultAsync(
+                x => x.Email == email,
+                cancellationToken
+            );
 
-    return user!;
+        return user!;
   }
 
+    public async Task Insert(User user, CancellationToken cancellationToken)
+    {
+        await _context.AddAsync(user, cancellationToken);
+    }
 }

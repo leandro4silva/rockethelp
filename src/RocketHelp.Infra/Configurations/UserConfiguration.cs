@@ -11,5 +11,6 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
         builder.HasKey(user => user.Id);
         builder.Property(user => user.Username).HasMaxLength(128);
         builder.Property(user => user.Password).HasMaxLength(255);
+        builder.Property(user => user.Email).HasMaxLength(255);
     }
 }

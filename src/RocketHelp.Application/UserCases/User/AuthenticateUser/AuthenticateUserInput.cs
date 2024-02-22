@@ -1,7 +1,6 @@
 ﻿using MediatR;
-using RocketHelp.Application.UserCases.User;
 
-namespace RocketHelp.Application.UserCases.Auth;
+namespace RocketHelp.Application.UserCases.User.AuthenticateUser;
 
 public class AuthenticateUserInput : IRequest<AuthenticateUserOutput>
 {

@@ -7,5 +7,6 @@ namespace RocketHelp.Domain.Repository;
 public interface IUserRepository : IRepository
 {
     public Task<User> GetByEmail(string email, CancellationToken cancellationToken);
+    public Task Insert(User user, CancellationToken cancellationToken);
 
 }
