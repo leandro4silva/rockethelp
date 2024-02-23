@@ -11,7 +11,7 @@ using RocketHelp.Infra;
 namespace RocketHelp.Infra.Migrations
 {
     [DbContext(typeof(RocketHelpDbContext))]
-    [Migration("20240222191457_CreateUserTable")]
+    [Migration("20240223141626_CreateUserTable")]
     partial class CreateUserTable
     {
         /// <inheritdoc />
@@ -44,8 +44,9 @@ namespace RocketHelp.Infra.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("varchar(255)");
 
-                    b.Property<int>("Role")
-                        .HasColumnType("int");
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime(6)");

@@ -2,8 +2,8 @@ version: '3.4'
 
 services:
   rocket_help_db:
-    container_name: rocket_help_db
-    hostname: rocket_help_db
+    container_name: rockethelpdb
+    hostname: rockethelpdb
     image: mysql
     ports:
       - 3306:3306
@@ -12,6 +12,6 @@ services:
 
 networks:
   default:
-    name: service_rocket_help
+    name: servicerockethelp
 
     

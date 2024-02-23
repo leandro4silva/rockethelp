@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using RocketHelp.Application.UserCases.User.AuthenticateUser;
 using RocketHelp.Application.UserCases.User.CreateUser;
 
 namespace RocketHelp.Api.Controllers;
@@ -19,6 +18,8 @@ public class UserController : ControllerBase
     
     [HttpPost]
     [ProducesResponseType(typeof(CreateUserOutput), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status422UnprocessableEntity)]
     public async Task<IActionResult> Create(
         [FromBody] CreateUserInput input,
         CancellationToken cancellationToken

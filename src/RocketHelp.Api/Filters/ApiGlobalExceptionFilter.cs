@@ -30,7 +30,7 @@ public class ApiGlobalExceptionFilter : IExceptionFilter
         //    details.Type = "UnprocessableEntity";
         //    details.Detail = exception.Message;
         //}
-        else if(exception is NotFoundException)
+        if(exception is NotFoundException)
         {
             details.Title = "Not found";
             details.Status = StatusCodes.Status404NotFound;

@@ -6,12 +6,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services
     .AddAppConnections(builder.Configuration)
     .AddUseCases()
-    .AddAndConfigureControllers();
+    .AddAndConfigureControllers()
+    .AddJwtBearerAuthentication();
 
 var app = builder.Build();
 app.UseDocumentation();
 app.UseHttpsRedirection();
 app.UseAuthorization();
+app.UseAuthentication();
 app.MapControllers();
 app.Run();
 

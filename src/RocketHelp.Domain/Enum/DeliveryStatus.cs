@@ -1,6 +1,6 @@
 ﻿namespace RocketHelp.Domain.Enum;
 
-public enum Status
+public enum DeliveryStatus
 {
     Finish,
     InProgress

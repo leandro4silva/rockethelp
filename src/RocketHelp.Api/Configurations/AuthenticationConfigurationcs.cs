@@ -7,7 +7,7 @@ namespace RocketHelp.Api.Configurations;
 
 public static class AuthenticationConfigurationcs
 {
-    public static IServiceCollection ConfigureAuthentication(this IServiceCollection services)
+    public static IServiceCollection AddJwtBearerAuthentication(this IServiceCollection services)
     {
         var key = Encoding.ASCII.GetBytes(JwtSettings.Secret);
 

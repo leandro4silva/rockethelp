@@ -1,8 +1,6 @@
-﻿using DomainEntity = RocketHelp.Domain.Entity;
+﻿namespace RocketHelp.Application.UserCases.User.Common;
 
-namespace RocketHelp.Application.UserCases.User.CreateUser;
-
-public class CreateUserOutput
+public class UserModelOutput
 {
     public Guid Id { get; set; }
     public string Email { get; private set; }
@@ -12,10 +10,10 @@ public class CreateUserOutput
     public DateTime CreatedAt { get; private set; }
     public DateTime UpdatedAt { get; private set; }
 
-    public CreateUserOutput(
-        Guid id,
+    public UserModelOutput(
+        Guid id, 
         string email, 
-        string password,
+        string password, 
         string role, 
         bool isActive, 
         DateTime createdAt, 
@@ -32,16 +30,5 @@ public class CreateUserOutput
     }
 
 
-    public static CreateUserOutput FromUser(DomainEntity.User user)
-    {
-        return new CreateUserOutput(
-            user.Id,
-            user.Email,
-            user.Password,
-            user.Role,
-            user.IsActive,
-            user.CreatedAt,
-            user.UpdatedAt
-        );
-    }
+ 
 }

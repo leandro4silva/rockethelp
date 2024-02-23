@@ -1,7 +1,9 @@
 ﻿using RocketHelp.Application.Interfaces;
 using RocketHelp.Application.Interfaces.Cryptography;
 using RocketHelp.Domain.Repository;
+using RocketHelp.Domain.Utils;
 using DomainEntity = RocketHelp.Domain.Entity;
+using Enums = RocketHelp.Domain.Enum;
 
 
 namespace RocketHelp.Application.UserCases.User.CreateUser;
@@ -29,15 +31,14 @@ public class CreateUser : ICreateUser
         CancellationToken cancellationToken
     )
     {
-
         var hashedPassword = _bcryptHasher.Hash(input.Password);
 
         var user = new DomainEntity.User(
             input.Username, 
             input.Email,
-            hashedPassword, 
-            input.Role, 
-            input.IsActive
+            hashedPassword,
+            Enums.Role.Employee.GetDescription(),
+            true
         );
 
         await _userRepository.Insert(user, cancellationToken);
